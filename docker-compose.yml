@@ -1,7 +1,7 @@
 version: "3.5"
 services:
     nnd-exporter:
-        image: test
+        image: fargus3222/nnd-exporter
         restart: unless-stopped
         ports:
           - "8082:8080"
