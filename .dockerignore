@@ -1,0 +1,8 @@
+venv/
+test.ipynb
+docker-compose.yml
+Dockerfile
+.env
+.git
+.github
+Makefile

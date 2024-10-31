@@ -1,0 +1,42 @@
+name: Deploy
+on:
+  push:
+    branches: [ "master"]
+
+jobs:
+  Down:
+    runs-on: nnd-node
+    steps:
+      - name: cd into repo
+        uses: actions/checkout@v2
+      - name: Down service
+        run: make down
+
+  Build:
+    runs-on: nnd-node
+    needs: [Down]
+    steps:
+      - name: cd into repo
+        uses: actions/checkout@v2
+      - name: Build service
+        run: make docker_build
+
+
+  Push:
+    needs: [Down, Build]
+    runs-on: nnd-node
+    steps:
+      - name: cd into repo
+        uses: actions/checkout@v2
+      - name: Push latest image
+        run: make docker_push
+
+
+  Up:
+    runs-on: nnd-node
+    needs: [Down, Build]
+    steps:
+      - name: cd into repo
+        uses: actions/checkout@v2
+      - name: Up service
+        run: make init
