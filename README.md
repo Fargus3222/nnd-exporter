@@ -1,4 +1,4 @@
-# Nexus node doker exporter
+# Nexus node docker exporter
 
 This exporter for nnd.
 
