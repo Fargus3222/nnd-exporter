@@ -8,4 +8,4 @@ services:
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
         environment:
-          - CONTAINER_ID=${{secrets.CONTAINER_ID}}
+          - CONTAINER_ID=${CONTAINER_ID}
