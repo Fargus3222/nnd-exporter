@@ -12,7 +12,7 @@ container_id = os.getenv('CONTAINER_ID')
 if not container_id:
     raise ValueError("Environment variable CONTAINER_ID is not set.")
 
-last_log_line_gauge = Gauge('docker_last_log_line', 'Last log line from Docker container', ['container_id', 'log_line'])
+last_log_line_gauge = Gauge('nnd_log_line', 'Last log line from nnd container', ['container_id', 'log_line'])
 
 @app.route('/metrics')
 def metrics():
